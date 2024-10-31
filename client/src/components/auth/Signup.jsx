@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { User, Mail, Lock, Key, Eye, EyeOff } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 axios.defaults.withCredentials = true; 
 
@@ -160,9 +160,9 @@ const Signup = () => {
          {/* Login Prompt */}
          <p className="mt-4 text-background-foreground">
           Don’t have an account?{" "}
-          {/* <Link to={'/login'} className="text-sky-700 cursor-pointer hover:underline" aria-label="Sign Up">
+          <Link to={'/login'} className="text-sky-700 cursor-pointer hover:underline" aria-label="Sign Up">
             Log in
-          </Link> */}
+          </Link>
         </p>
 
       </div>

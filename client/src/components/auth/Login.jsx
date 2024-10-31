@@ -2,9 +2,9 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import { toast } from "@/hooks/use-toast"; // Adjust the import based on your toast setup
+import { toast } from "@/hooks/use-toast"; 
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const initialValues = {
@@ -105,9 +105,9 @@ const Login = () => {
 
               {/* Forgot Password Link */}
               <div className="text-right mb-4">
-                {/* <Link to={'/forget-password'} className="text-accent hover:underline" aria-label="Forgot Password">
+                <Link to={'/forget-password'} className="text-accent hover:underline" aria-label="Forgot Password">
                   Forgot Password?
-                </Link> */}
+                </Link>
               </div>
 
               {/* Submit Button */}
@@ -125,9 +125,9 @@ const Login = () => {
         {/* Sign Up Prompt */}
         <p className="mt-4 text-background-foreground">
           Don’t have an account?{" "}
-          {/* <Link to={'/signup'} className="text-sky-700 cursor-pointer hover:underline" aria-label="Sign Up">
+          <Link to={'/signup'} className="text-sky-700 cursor-pointer hover:underline" aria-label="Sign Up">
             Sign Up
-          </Link> */}
+          </Link>
         </p>
       </div>
     </div>
