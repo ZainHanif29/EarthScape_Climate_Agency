@@ -51,10 +51,8 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-secondary to-primary p-4">
-      <div className="w-full max-w-md shadow-lg rounded-lg bg-white p-8">
-        <h2 className="text-2xl font-heading font-bold text-primary mb-6" aria-label="Login">
-          Login
-        </h2>
+      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl font-heading font-bold text-primary mb-6">Login</h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -63,53 +61,47 @@ const Login = () => {
           {({ values, setFieldValue }) => (
             <Form>
               {/* Email Field */}
-              <div className="mb-4 relative">
-                <label htmlFor="email" className="block text-background-foreground">Email</label>
-                <div className="flex items-center">
+              <div className="mb-5 relative">
+                <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                <div className="flex items-center relative">
                   <Field
                     type="email"
                     name="email"
                     id="email"
-                    className="w-full px-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
                     placeholder="Enter your email"
-                    aria-label="Email"
                   />
-                  <Mail className="absolute left-3 top-9 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-3 text-gray-400" />
                 </div>
-                <ErrorMessage name="email" component="div" className="text-red-500" />
+                <ErrorMessage name="email" component="div" className="text-red-500 mt-1 text-sm" />
               </div>
 
               {/* Password Field */}
-              <div className="mb-4 relative">
-                <label htmlFor="password" className="block text-background-foreground">Password</label>
-                <div className="flex items-center">
+              <div className="mb-5 relative">
+                <label htmlFor="password" className="block text-gray-700 mb-2">Password</label>
+                <div className="flex items-center relative">
                   <Field
                     type={values.passwordVisible ? "text" : "password"}
                     name="password"
                     id="password"
-                    className="w-full px-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
                     placeholder="Enter your password"
-                    aria-label="Password"
                   />
+                  <Lock className="absolute left-3 top-3 text-gray-400" />
                   <div
                     onClick={() => setFieldValue("passwordVisible", !values.passwordVisible)}
-                    className="absolute right-3 top-9 cursor-pointer"
-                    aria-label={values.passwordVisible ? "Hide password" : "Show password"}
+                    className="absolute right-3 top-3 cursor-pointer"
                   >
-                    {values.passwordVisible ? <EyeOff className="w-5 h-5 text-gray-400" /> : <Eye className="w-5 h-5 text-gray-400" />}
+                    {values.passwordVisible ? <EyeOff className="text-gray-400" /> : <Eye className="text-gray-400" />}
                   </div>
-                  <Lock className="absolute left-3 top-9 w-5 h-5 text-gray-400" />
                 </div>
-                <ErrorMessage name="password" component="div" className="text-red-500" />
+                <ErrorMessage name="password" component="div" className="text-red-500 mt-1 text-sm" />
               </div>
-
-              
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary-foreground hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-ring"
-                aria-label="Login"
+                className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 Login
               </button>
@@ -117,10 +109,13 @@ const Login = () => {
           )}
         </Formik>
 
-        {/* Sign Up Prompt */}
-        <p className="mt-4 text-background-foreground">
+        {/* Sign Up Link */}
+        <p className="mt-4 text-center text-gray-700">
           Don’t have an account?{" "}
-          <Link to={'/signup'} className="text-sky-700 cursor-pointer hover:underline" aria-label="Sign Up">
+          <Link
+            to="/signup"
+            className="text-primary hover:underline transition"
+          >
             Sign Up
           </Link>
         </p>
