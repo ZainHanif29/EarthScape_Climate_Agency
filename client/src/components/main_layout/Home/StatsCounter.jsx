@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const stats = [
   {
-    title: 'Total Datasets Processed',
+    title: "Total Datasets Processed",
     value: 120345,
-    icon: '📊',
+    icon: "📊", // You can replace this with an icon from an icon library if desired
   },
   {
-    title: 'Anomalies Detected',
+    title: "Anomalies Detected",
     value: 4789,
-    icon: '⚠️',
+    icon: "⚠️",
   },
   {
-    title: 'Users Registered',
+    title: "Users Registered",
     value: 8754,
-    icon: '👥',
+    icon: "👥",
   },
 ];
 
@@ -26,7 +26,7 @@ const StatsCounter = () => {
       let start = 0;
       const end = stat.value; // Final value
       const duration = 2000; // 2 seconds
-      const incrementTime = 10;
+      const incrementTime = 20;
 
       const timer = setInterval(() => {
         start += Math.round(end / (duration / incrementTime));
@@ -51,10 +51,10 @@ const StatsCounter = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-blue-50">
+    <section className="py-16 bg-palette-light">
       <div className="container mx-auto px-4">
         {/* Section Heading */}
-        <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-palette-navy mb-12">
           Our Impact in Numbers
         </h2>
 
@@ -63,18 +63,18 @@ const StatsCounter = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform"
+              className="bg-palette-gray p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform"
             >
               {/* Icon */}
               <div className="text-4xl mb-4">{stat.icon}</div>
 
               {/* Counter */}
-              <h3 className="text-3xl font-bold text-blue-600 mb-2">
+              <h3 className="text-3xl font-bold text-palette-turquoise mb-2">
                 {counters[index].toLocaleString()}
               </h3>
 
               {/* Title */}
-              <p className="text-gray-600">{stat.title}</p>
+              <p className="text-palette-light">{stat.title}</p>
             </div>
           ))}
         </div>

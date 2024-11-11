@@ -1,21 +1,24 @@
-import React from 'react';
-import { BarChart, Globe, TrendingUp } from 'lucide-react';
+import React from "react";
+import { BarChart, Globe, TrendingUp } from "lucide-react";
 
 const features = [
   {
     icon: <BarChart size={40} className="text-blue-600" />,
-    title: 'Real-time Data Analysis',
-    description: 'Analyze climate data in real-time to make informed decisions and track trends efficiently.',
+    title: "Real-time Data Analysis",
+    description:
+      "Analyze climate data in real-time to make informed decisions and track trends efficiently.",
   },
   {
     icon: <Globe size={40} className="text-green-600" />,
-    title: 'Interactive Visualizations',
-    description: 'Explore climate patterns and insights through dynamic, interactive graphs and maps.',
+    title: "Interactive Visualizations",
+    description:
+      "Explore climate patterns and insights through dynamic, interactive graphs and maps.",
   },
   {
     icon: <TrendingUp size={40} className="text-yellow-600" />,
-    title: 'Predictive Climate Insights',
-    description: 'Utilize advanced models to forecast climate changes and prepare for future scenarios.',
+    title: "Predictive Climate Insights",
+    description:
+      "Utilize advanced models to forecast climate changes and prepare for future scenarios.",
   },
 ];
 
@@ -36,10 +39,12 @@ const FeaturesSection = () => {
               className="bg-white shadow-lg rounded-lg p-6 text-center transform hover:scale-105 transition-transform"
             >
               {/* Icon */}
-              <div className="mb-4">{feature.icon}</div>
+              <div className="mb-4 flex items-center justify-center">{feature.icon}</div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {feature.title}
+              </h3>
 
               {/* Description */}
               <p className="text-gray-600">{feature.description}</p>

@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b border-gray-200">
+    <nav className="bg-palette-navy text-palette-light">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">MyLogo</div>
+        <div className="text-2xl font-bold text-palette-turquoise">
+          <Link to="/">EarthScape</Link>
+        </div>
 
         {/* Hamburger Menu (Mobile View) */}
         <button
-          className="lg:hidden text-gray-600 focus:outline-none"
+          className="lg:hidden text-palette-light focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg
@@ -41,76 +44,85 @@ const Header = () => {
 
         {/* Links (Desktop View) */}
         <div className="hidden lg:flex space-x-6 items-center">
-          <a
-            href="#home"
-            className="text-gray-600 hover:text-blue-600 transition-colors"
+          <Link
+            to="/"
+            className="text-palette-light hover:text-palette-turquoise transition-colors"
           >
             Home
-          </a>
-          <a
-            href="#about"
-            className="text-gray-600 hover:text-blue-600 transition-colors"
+          </Link>
+          <Link
+            to="/about"
+            className="text-palette-light hover:text-palette-turquoise transition-colors"
           >
             About
-          </a>
-          <a
-            href="#features"
-            className="text-gray-600 hover:text-blue-600 transition-colors"
+          </Link>
+          <Link
+            to="/features"
+            className="text-palette-light hover:text-palette-turquoise transition-colors"
           >
             Features
-          </a>
-          <a
-            href="#contact"
-            className="text-gray-600 hover:text-blue-600 transition-colors"
+          </Link>
+          <Link
+            to="/contact"
+            className="text-palette-light hover:text-palette-turquoise transition-colors"
           >
             Contact
-          </a>
+          </Link>
           <div className="space-x-4">
-            <button className="px-4 py-2 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
-              Login
-            </button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-              Signup
-            </button>
+            <Link to="/login">
+              <button className="px-4 py-2 text-palette-turquoise border border-palette-turquoise rounded hover:bg-palette-turquoise hover:text-palette-light transition">
+                Login
+              </button>
+            </Link>
+
+            <Link to="/signup">
+              <button className="px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
+                Signup
+              </button>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-gray-50 border-t border-gray-200">
+        <div className="lg:hidden bg-palette-gray border-t border-palette-navy">
           <div className="flex flex-col space-y-4 px-4 py-4">
-            <a
-              href="#home"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+            <Link
+              to="/"
+              className="text-palette-light hover:text-palette-turquoise transition-colors"
             >
               Home
-            </a>
-            <a
-              href="#about"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+            </Link>
+            <Link
+              to="/about"
+              className="text-palette-light hover:text-palette-turquoise transition-colors"
             >
               About
-            </a>
-            <a
-              href="#features"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+            </Link>
+            <Link
+              to="/features"
+              className="text-palette-light hover:text-palette-turquoise transition-colors"
             >
               Features
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+            </Link>
+            <Link
+              to="/contact"
+              className="text-palette-light hover:text-palette-turquoise transition-colors"
             >
               Contact
-            </a>
+            </Link>
             <div className="space-y-2">
-              <button className="w-full px-4 py-2 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition">
-                Login
-              </button>
-              <button className="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                Signup
-              </button>
+              <Link to="/login">
+                <button className="w-full px-4 py-2 text-palette-turquoise border border-palette-turquoise rounded hover:bg-palette-turquoise hover:text-palette-light transition">
+                  Login
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className="w-full px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
+                  Signup
+                </button>
+              </Link>
             </div>
           </div>
         </div>

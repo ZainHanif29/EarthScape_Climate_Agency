@@ -2,11 +2,9 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { User, Mail, Lock, Key, Eye, EyeOff } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
-import axios from "axios";
 import { Link } from "react-router-dom";
-
-axios.defaults.withCredentials = true;
+import { toast } from "@/hooks/use-toast"; 
+import axios from "axios";
 
 const Signup = () => {
   const initialValues = {
@@ -30,13 +28,11 @@ const Signup = () => {
   });
 
   const handleSubmit = async (values) => {
-    const { name, email, password } = values;
-
     try {
       const response = await axios.post("http://localhost:8000/api/auth/register", {
-        username: name,
-        email,
-        password,
+        username: values.name,
+        email: values.email,
+        password: values.password,
       });
 
       if (response.data.success) {
@@ -45,10 +41,8 @@ const Signup = () => {
           description: "Registration successful!",
           variant: "success",
         });
-        // Reset form or redirect after successful registration
       }
     } catch (error) {
-      console.error("Error:", error);
       toast({
         title: "Error",
         description: error.response?.data?.message || "Registration failed!",
@@ -58,9 +52,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-secondary to-primary p-4">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-heading font-bold text-primary mb-6">Sign Up</h2>
+    <div className="flex justify-center items-center min-h-screen bg-palette-light p-4">
+      <div className="w-full max-w-md bg-palette-gray shadow-lg rounded-lg p-6">
+        <h2 className="text-2xl font-heading font-bold text-palette-turquoise mb-6">
+          Sign Up
+        </h2>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -69,85 +65,107 @@ const Signup = () => {
           {({ values, setFieldValue }) => (
             <Form>
               {/* Name Field */}
-              <div className="mb-5 relative">
-                <label htmlFor="name" className="block text-gray-700 mb-2">Name</label>
+              <div className="mb-6 relative">
+                <label htmlFor="name" className="block text-palette-light mb-2">
+                  Name
+                </label>
                 <div className="relative">
                   <Field
                     type="text"
                     name="name"
                     id="name"
-                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
+                    className="w-full pl-10 py-3 border border-palette-navy rounded-md focus:ring-2 focus:ring-palette-turquoise focus:outline-none placeholder-palette-gray"
                     placeholder="Enter your name"
                   />
-                  <User className="absolute left-3 top-3 text-gray-400" />
+                  <User className="absolute left-3 top-3 text-palette-gray" />
                 </div>
-                <ErrorMessage name="name" component="div" className="text-red-500 mt-1 text-sm" />
+                <ErrorMessage name="name" component="div" className="text-red-500 mt-1" />
               </div>
 
               {/* Email Field */}
-              <div className="mb-5 relative">
-                <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+              <div className="mb-6 relative">
+                <label htmlFor="email" className="block text-palette-light mb-2">
+                  Email
+                </label>
                 <div className="relative">
                   <Field
                     type="email"
                     name="email"
                     id="email"
-                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
+                    className="w-full pl-10 py-3 border border-palette-navy rounded-md focus:ring-2 focus:ring-palette-turquoise focus:outline-none placeholder-palette-gray"
                     placeholder="Enter your email"
                   />
-                  <Mail className="absolute left-3 top-3 text-gray-400" />
+                  <Mail className="absolute left-3 top-3 text-palette-gray" />
                 </div>
-                <ErrorMessage name="email" component="div" className="text-red-500 mt-1 text-sm" />
+                <ErrorMessage name="email" component="div" className="text-red-500 mt-1" />
               </div>
 
               {/* Password Field */}
-              <div className="mb-5 relative">
-                <label htmlFor="password" className="block text-gray-700 mb-2">Password</label>
+              <div className="mb-6 relative">
+                <label htmlFor="password" className="block text-palette-light mb-2">
+                  Password
+                </label>
                 <div className="relative">
                   <Field
                     type={values.passwordVisible ? "text" : "password"}
                     name="password"
                     id="password"
-                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
+                    className="w-full pl-10 py-3 border border-palette-navy rounded-md focus:ring-2 focus:ring-palette-turquoise focus:outline-none placeholder-palette-gray"
                     placeholder="Enter your password"
                   />
-                  <Lock className="absolute left-3 top-3 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 text-palette-gray" />
                   <div
                     onClick={() => setFieldValue("passwordVisible", !values.passwordVisible)}
                     className="absolute right-3 top-3 cursor-pointer"
                   >
-                    {values.passwordVisible ? <EyeOff className="text-gray-400" /> : <Eye className="text-gray-400" />}
+                    {values.passwordVisible ? (
+                      <EyeOff className="text-palette-gray" />
+                    ) : (
+                      <Eye className="text-palette-gray" />
+                    )}
                   </div>
                 </div>
-                <ErrorMessage name="password" component="div" className="text-red-500 mt-1 text-sm" />
+                <ErrorMessage name="password" component="div" className="text-red-500 mt-1" />
               </div>
 
               {/* Confirm Password Field */}
-              <div className="mb-5 relative">
-                <label htmlFor="confirmPassword" className="block text-gray-700 mb-2">Confirm Password</label>
+              <div className="mb-6 relative">
+                <label htmlFor="confirmPassword" className="block text-palette-light mb-2">
+                  Confirm Password
+                </label>
                 <div className="relative">
                   <Field
                     type={values.confirmPasswordVisible ? "text" : "password"}
                     name="confirmPassword"
                     id="confirmPassword"
-                    className="w-full pl-10 py-2 border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
+                    className="w-full pl-10 py-3 border border-palette-navy rounded-md focus:ring-2 focus:ring-palette-turquoise focus:outline-none placeholder-palette-gray"
                     placeholder="Confirm your password"
                   />
-                  <Key className="absolute left-3 top-3 text-gray-400" />
+                  <Key className="absolute left-3 top-3 text-palette-gray" />
                   <div
-                    onClick={() => setFieldValue("confirmPasswordVisible", !values.confirmPasswordVisible)}
+                    onClick={() =>
+                      setFieldValue("confirmPasswordVisible", !values.confirmPasswordVisible)
+                    }
                     className="absolute right-3 top-3 cursor-pointer"
                   >
-                    {values.confirmPasswordVisible ? <EyeOff className="text-gray-400" /> : <Eye className="text-gray-400" />}
+                    {values.confirmPasswordVisible ? (
+                      <EyeOff className="text-palette-gray" />
+                    ) : (
+                      <Eye className="text-palette-gray" />
+                    )}
                   </div>
                 </div>
-                <ErrorMessage name="confirmPassword" component="div" className="text-red-500 mt-1 text-sm" />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="div"
+                  className="text-red-500 mt-1"
+                />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full bg-palette-turquoise text-palette-light py-3 rounded-md hover:bg-palette-navy transition focus:outline-none focus:ring-2 focus:ring-palette-turquoise"
               >
                 Sign Up
               </button>
@@ -156,12 +174,9 @@ const Signup = () => {
         </Formik>
 
         {/* Login Link */}
-        <p className="mt-4 text-center text-gray-700">
+        <p className="mt-4 text-center text-palette-light">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-primary hover:underline transition"
-          >
+          <Link to="/login" className="text-palette-turquoise hover:underline transition">
             Log in
           </Link>
         </p>

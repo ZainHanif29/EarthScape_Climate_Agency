@@ -3,6 +3,11 @@
 @tailwind utilities;
 @layer base {
   :root {
+    --palette-navy: #222831;
+    --palette-gray: #393e46;
+    --palette-turquoise: #00adb5;
+    --palette-light: #eeeeee;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -54,11 +59,13 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%}
 }
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+body {
+  background-color: var(--palette-light);
+  color: var(--palette-navy);
+}
+
+.button-primary {
+  background-color: var(--palette-turquoise);
+  color: var(--palette-light);
+  border: 1px solid var(--palette-gray);
 }
