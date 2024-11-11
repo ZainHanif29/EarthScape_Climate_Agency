@@ -3,12 +3,34 @@ import "./App.css";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import MainLayout from "./MainLayout";
+import HomePage from "./pages/Home-Page";
+import AboutPage from "./pages/About-Page";
+import ContactPage from "./pages/Contact-Page";
+import FeaturePage from "./pages/Feature-Page";
 
 function App() {
   const appRouter = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/features",
+          element: <FeaturePage />,
+        },
+        {
+          path: "/Contact",
+          element: <ContactPage />,
+        },
+      ]
     },
     {
       path: "/signup",
