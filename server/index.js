@@ -3,7 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
-import router from "./routes/user.route.js";
+import userRouter from "./routes/user.route.js";
+import climateRouter from "./routes/climate.route.js";
 dotenv.config();
 
 
@@ -26,7 +27,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/auth',router)
+app.use('/api/auth',userRouter)
+app.use('/api/data',climateRouter)
 
 
 
