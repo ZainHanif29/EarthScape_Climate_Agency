@@ -12,17 +12,17 @@ const ContactInfo = () => {
             {
               title: "Address",
               icon: "📍",
-              detail: "123 Climate Lane, EarthCity, EC 45678",
+              detail: "Aptech Learning North Nazimabad II",
             },
             {
               title: "Email",
               icon: "📧",
-              detail: "contact@earthscape.com",
+              detail: "zainhanif2902@gmail.com",
             },
             {
               title: "Phone",
               icon: "📞",
-              detail: "+1 (555) 123-4567",
+              detail: "+92 316-1055276",
             },
           ].map((info, index) => (
             <div

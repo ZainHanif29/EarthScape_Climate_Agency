@@ -7,6 +7,7 @@ import HomePage from "./pages/Home-Page";
 import AboutPage from "./pages/About-Page";
 import ContactPage from "./pages/Contact-Page";
 import FeaturePage from "./pages/Feature-Page";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -27,10 +28,14 @@ function App() {
           element: <FeaturePage />,
         },
         {
-          path: "/Contact",
+          path: "/contact",
           element: <ContactPage />,
         },
       ]
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
     },
     {
       path: "/signup",

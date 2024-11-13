@@ -23,7 +23,7 @@ const Login = () => {
       const response = await axios.post("http://localhost:8000/api/auth/login", {
         email: values.email,
         password: values.password,
-      });
+      },{ withCredentials: true });
 
       if (response.data.success) {
         toast({

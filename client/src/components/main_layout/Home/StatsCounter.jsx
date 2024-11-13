@@ -1,20 +1,21 @@
+import { CalendarClock, DatabaseBackupIcon, MonitorX } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 const stats = [
   {
     title: "Total Datasets Processed",
-    value: 120345,
-    icon: "📊", // You can replace this with an icon from an icon library if desired
+    value: 683189,
+    icon: <DatabaseBackupIcon />, // You can replace this with an icon from an icon library if desired
   },
   {
-    title: "Anomalies Detected",
-    value: 4789,
-    icon: "⚠️",
+    title: "Total Years of Data",
+    value: 218,
+    icon: <CalendarClock/>,
   },
   {
-    title: "Users Registered",
-    value: 8754,
-    icon: "👥",
+    title: "Total Stations",
+    value: 27995,
+    icon: <MonitorX />,
   },
 ];
 
@@ -66,7 +67,7 @@ const StatsCounter = () => {
               className="bg-palette-gray p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform"
             >
               {/* Icon */}
-              <div className="text-4xl mb-4">{stat.icon}</div>
+              <div className="text-4xl mb-4 text-white flex items-center justify-center">{stat.icon}</div>
 
               {/* Counter */}
               <h3 className="text-3xl font-bold text-palette-turquoise mb-2">

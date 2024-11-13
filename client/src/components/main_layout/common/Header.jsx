@@ -1,8 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = async()=> {
+    const res = await axios.get('http://localhost:8000/api/auth/logout');
+    navigate("/login")
+  }
 
   return (
     <nav className="bg-palette-navy text-palette-light">
@@ -69,17 +76,15 @@ const Header = () => {
             Contact
           </Link>
           <div className="space-x-4">
-            <Link to="/login">
+            <Link to="/dashboard">
               <button className="px-4 py-2 text-palette-turquoise border border-palette-turquoise rounded hover:bg-palette-turquoise hover:text-palette-light transition">
-                Login
+              Dashboard
               </button>
             </Link>
 
-            <Link to="/signup">
-              <button className="px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
-                Signup
+              <button onClick={handleLogout} className="px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
+                Logout
               </button>
-            </Link>
           </div>
         </div>
       </div>
@@ -113,16 +118,16 @@ const Header = () => {
               Contact
             </Link>
             <div className="space-y-2">
-              <Link to="/login">
+              <Link to="/dashboard">
                 <button className="w-full px-4 py-2 text-palette-turquoise border border-palette-turquoise rounded hover:bg-palette-turquoise hover:text-palette-light transition">
-                  Login
+                Dashboard
                 </button>
               </Link>
-              <Link to="/signup">
-                <button className="w-full px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
-                  Signup
+              
+                <button onClick={handleLogout} className="w-full px-4 py-2 bg-palette-turquoise text-palette-light rounded hover:bg-palette-navy hover:text-palette-light transition">
+                  Logout
                 </button>
-              </Link>
+              
             </div>
           </div>
         </div>

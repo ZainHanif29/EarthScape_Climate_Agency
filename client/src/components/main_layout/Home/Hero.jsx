@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "@/assets/banner/earthscape-2.jpg"; // Replace with your hero image path
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -29,12 +30,13 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className="flex justify-center space-x-4">
+          <Link to={'/features'}>
           <button className="px-8 py-3 bg-palette-turquoise text-palette-light text-lg font-semibold rounded-lg hover:bg-palette-navy transition duration-300">
             Explore Features
-          </button>
-          <button className="px-8 py-3 bg-transparent border border-palette-turquoise text-palette-turquoise text-lg font-semibold rounded-lg hover:bg-palette-turquoise hover:text-palette-light transition duration-300">
+          </button></Link>
+          <Link to={'/contact'}><button className="px-8 py-3 bg-transparent border border-palette-turquoise text-palette-turquoise text-lg font-semibold rounded-lg hover:bg-palette-turquoise hover:text-palette-light transition duration-300">
             Get Started
-          </button>
+          </button></Link>
         </div>
       </div>
     </section>

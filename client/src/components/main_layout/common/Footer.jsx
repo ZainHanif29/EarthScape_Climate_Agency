@@ -20,18 +20,18 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/privacy-policy"
+                  href="/features"
                   className="text-palette-light hover:text-palette-turquoise transition"
                 >
-                  Privacy Policy
+                  features
                 </a>
               </li>
               <li>
                 <a
-                  href="/terms-of-service"
+                  href="/contact"
                   className="text-palette-light hover:text-palette-turquoise transition"
                 >
-                  Terms of Service
+                 Contact
                 </a>
               </li>
             </ul>
@@ -42,7 +42,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 text-palette-turquoise">Follow Us</h3>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61554276364307"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-palette-light hover:text-palette-turquoise transition"
@@ -50,15 +50,7 @@ const Footer = () => {
                 <Facebook size={24} />
               </a>
               <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-palette-light hover:text-palette-turquoise transition"
-              >
-                <Twitter size={24} />
-              </a>
-              <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/zainhanif2902/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-palette-light hover:text-palette-turquoise transition"
@@ -66,7 +58,7 @@ const Footer = () => {
                 <Instagram size={24} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/zain-hanif-154426222/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-palette-light hover:text-palette-turquoise transition"
@@ -79,16 +71,15 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-palette-turquoise">Contact Us</h3>
-            <p className="text-palette-light">123 Climate Lane</p>
-            <p className="text-palette-light">EarthCity, EC 45678</p>
-            <p className="text-palette-light">Email: contact@earthscape.com</p>
-            <p className="text-palette-light">Phone: +1 (555) 123-4567</p>
+            <p className="text-palette-light">Aptech Learning North Nazimabad II</p>
+            <p className="text-palette-light">Email: zainhanif2902@gmail.com</p>
+            <p className="text-palette-light">Phone: +92 316-1055276</p>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 text-center text-palette-gray text-sm">
-          © {new Date().getFullYear()} EarthScape. All rights reserved.
+        <div className="mt-10 text-center text-palette-turquoise text-lg">
+          © {new Date().getFullYear()} <a href="https://www.linkedin.com/in/zain-hanif-154426222/" target="_blank" rel="noopener noreferrer">EARTHSCAPE_CLIMATE_AGENCY</a> All rights reserved.
         </div>
       </div>
     </footer>

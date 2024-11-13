@@ -16,7 +16,7 @@ const FeatureHighlight = () => {
 
         {/* Text Content */}
         <div className="lg:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-palette-navy">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Advanced Climate Monitoring
           </h2>
           <p className="text-palette-light mb-4 leading-relaxed">

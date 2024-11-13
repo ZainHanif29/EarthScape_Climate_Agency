@@ -15,7 +15,7 @@ const CTASection = () => {
         {/* CTA Buttons */}
         <div className="space-x-4">
           <a
-            href="/signup"
+            href="/contact"
             className="inline-block px-6 py-3 bg-white text-palette-turquoise font-semibold rounded-md hover:bg-gray-100 transition"
           >
             Get Started
