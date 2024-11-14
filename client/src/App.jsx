@@ -1,19 +1,31 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+
 import "./App.css";
-import Login from "./components/auth/Login";
-import Signup from "./components/auth/Signup";
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 import MainLayout from "./MainLayout";
 import HomePage from "./pages/Home-Page";
 import AboutPage from "./pages/About-Page";
-import ContactPage from "./pages/Contact-Page";
 import FeaturePage from "./pages/Feature-Page";
-import Dashboard from "./pages/Dashboard";
+import ContactPage from "./pages/Contact-Page";
+import Signup from "./components/auth/Signup";
+import Login from "./components/auth/Login";
+import { PublicRoute } from "./routes/PublicRoute";
+import TableauDashboard from "./pages/Dashboard";
+
+// Directly Imported Components
+
 
 function App() {
+  // Define app routes
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: <MainLayout />,
+      element: (
+        <ProtectedRoute>
+          <MainLayout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: "/",
@@ -31,27 +43,31 @@ function App() {
           path: "/contact",
           element: <ContactPage />,
         },
-      ]
-    },
-    {
-      path: "/dashboard",
-      element: <Dashboard />,
+        {
+          path: "/dashboard",
+          element: <TableauDashboard />,
+        },
+      ],
     },
     {
       path: "/signup",
-      element: <Signup />,
+      element: (
+        <PublicRoute>
+          <Signup />
+        </PublicRoute>
+      ),
     },
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <PublicRoute>
+          <Login />
+        </PublicRoute>
+      ),
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={appRouter} />
-    </>
-  );
+  return <RouterProvider router={appRouter} />;
 }
 
 export default App;

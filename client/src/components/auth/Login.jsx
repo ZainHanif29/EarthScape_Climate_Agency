@@ -2,11 +2,12 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "@/hooks/use-toast"; // Assuming toast is used
 import axios from "axios";
 
 const Login = () => {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -31,6 +32,9 @@ const Login = () => {
           description: "Login successful!",
           variant: "success",
         });
+        navigate('/')
+      }else{
+        navigate('/signup')
       }
     } catch (error) {
       toast({

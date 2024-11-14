@@ -6,10 +6,21 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogout = async()=> {
-    const res = await axios.get('http://localhost:8000/api/auth/logout');
-    navigate("/login")
-  }
+  const handleLogout = async () => {
+    try {
+        const response = await fetch("http://localhost:8000/api/auth/logout", {
+            method: "GET",
+            credentials: "include", // Important for sending cookies with the request
+        });
+        const data = await response.json();
+        console.log(data.message); // Optional: Show logout success message
+        window.location.href = "/login"; // Redirect to login page
+    } catch (error) {
+        console.error("Logout failed:", error);
+    }
+};
+
+
 
   return (
     <nav className="bg-palette-navy text-palette-light">
